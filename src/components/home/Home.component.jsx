@@ -59,7 +59,7 @@ function Home() {
       rating: 5,
     },
     {
-      id: "23432f",
+      id: "23430f",
       title: "Beauty and personal care",
       image:
         "https://images.unsplash.com/photo-1498842812179-c81beecf902c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
@@ -101,6 +101,7 @@ function Home() {
             image={image}
             price={price}
             rating={rating}
+            id={id}
           />
         ))}
         {/* <Product
@@ -133,6 +134,7 @@ function Home() {
             image={image}
             price={price}
             rating={rating}
+            id={id}
           />
         ))}
         {/* <Product

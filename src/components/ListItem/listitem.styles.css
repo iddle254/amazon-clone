@@ -1,0 +1,25 @@
+.listItem {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.listItem__img {
+  object-fit: contain;
+  width: 180px;
+  height: 180px;
+}
+.listItem__info {
+  padding-left: 20px;
+}
+.listItem__button {
+  background-color: #f0c14b;
+  border: 1px solid;
+  border-color: #a88734 #9c7e31 #846a29;
+}
+.product__rating {
+  display: flex;
+}
+.listItem__title {
+  font-size: 20px;
+  font-weight: 800;
+}
