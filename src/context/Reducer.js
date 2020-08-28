@@ -9,6 +9,7 @@ export const initialState = {
       id: "345667",
     },
   ],
+  user: null,
 };
 
 export const getBasketTotal = (basket) =>
@@ -18,6 +19,11 @@ function reducer(state, action) {
   console.log(action);
 
   switch (action.type) {
+    case "SET_USER":
+      return {
+        ...state,
+        user: action.user,
+      };
     case "ADD_TO_BASKET":
       // LOGIC FOR ADDING ITEM TO BASKET
       return { ...state, basket: [...state.basket, action.payload] };

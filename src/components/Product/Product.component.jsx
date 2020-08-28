@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useStateValue } from "../../context/StateProvider.context";
 
 function Product({ id, title, price, rating, image }) {
-  const [{ basket }, dispatch] = useStateValue();
+  const [, dispatch] = useStateValue();
   const addToBasket = () => {
     dispatch({
       type: "ADD_TO_BASKET",
@@ -31,7 +31,9 @@ function Product({ id, title, price, rating, image }) {
               {Array(rating)
                 .fill()
                 .map((_) => (
-                  <span>🌟</span>
+                  <span role="img" aria-label="fire">
+                    🔥{" "}
+                  </span>
                 ))}
             </div>
           </>

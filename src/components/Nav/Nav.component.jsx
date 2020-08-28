@@ -1,13 +1,21 @@
 import React from "react";
 import "./nav.styles.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import SearchIcon from "@material-ui/icons/Search";
 import Cart from "@material-ui/icons/ShoppingBasket";
 import { useStateValue } from "../../context/StateProvider.context";
+import { auth } from "../../firebase/firebase";
 
 function Nav() {
-  const [{ basket }, dispatch] = useStateValue();
-  console.log(basket);
+  const [{ basket, user }] = useStateValue();
+  const history = useHistory();
+
+  const login = () => {
+    if (user) {
+      auth.signOut();
+      history.push("/login");
+    }
+  };
   return (
     <nav className="header">
       <Link to="/">
@@ -24,10 +32,12 @@ function Nav() {
       </div>
 
       <div className="header__nav">
-        <Link to="login" className="header__link">
-          <div className="header__option">
-            <span className="header__optionLine1">Hello Charles,</span>
-            <span className="header__optionLine2">Signin</span>
+        <Link to={!user && "/login"} className="header__link">
+          <div onClick={login} className="header__option">
+            <span className="header__optionLine1">Hello {user?.email},</span>
+            <span className="header__optionLine2">
+              {user ? "Signout" : "Signin"}
+            </span>
           </div>
         </Link>
         <Link to="/return-policy" className="header__link">

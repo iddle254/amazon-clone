@@ -3,7 +3,7 @@ import "./listitem.styles.css";
 import { useStateValue } from "../../context/StateProvider.context";
 
 function ListItem({ id, title, image, price, rating }) {
-  const [{}, dispatch] = useStateValue();
+  const [, dispatch] = useStateValue();
 
   const removeItemFromBasket = () => {
     dispatch({
